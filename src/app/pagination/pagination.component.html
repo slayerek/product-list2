@@ -1,0 +1,7 @@
+<div class="paginacja" *ngIf="showPagination">
+    <ng-container *ngFor="let item of pagesToShowArr;let i = index;">
+        <button [ngClass]="{'active' : i == activeIndex}" (click)="pageIndex(i)">
+            {{i + 1}}
+        </button>
+    </ng-container>
+</div>

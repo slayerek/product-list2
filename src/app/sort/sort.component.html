@@ -1,0 +1,24 @@
+<div class="search"></div>
+<h3>Sortowanie</h3>
+<select #firstSelect (change)="getSortValues(firstSelect.value,secondSelect.value)">
+    <option value="id" [selected]="true">
+        ID
+    </option>
+    <option value="name" [selected]="false">
+        Nazwa
+    </option>
+    <option value="price" [selected]="false">
+        Cena
+    </option>
+</select>
+
+<select #secondSelect (change)="getSortValues(firstSelect.value,secondSelect.value)">
+    <option value="asc" [selected]="true">
+        ASC
+    </option>
+    <option value="dsc" [selected]="false">
+        DSC
+    </option>
+</select>
+
+

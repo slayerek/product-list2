@@ -1,0 +1,13 @@
+<app-search (messageEvent)="receiveSearchString($event)">
+</app-search>
+
+<ng-container *ngFor="let item of prodList">
+    <app-product [products]="item">
+    </app-product>
+</ng-container>
+
+<app-pagination (messageEvent)="receivePageInd($event)" [showPag]="showPagination">
+</app-pagination>
+
+<app-sort (messageEvent)="receiveSortValues($event)">
+</app-sort>

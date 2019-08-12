@@ -1,0 +1,16 @@
+<h4>Twój koszyk</h4>
+<ul class="user-cart--list">
+    <li *ngFor="let item of products">
+        <button (click)="removeItem(item)">x</button>
+        Name: {{item.name}} - Cena: {{item.sum_price}} - Ilość : {{item.quantity}}
+        <input *ngIf="item.quantity>1" type="button" (click)="removeAll(item)" value="Usuń wszystkie">
+    </li>
+</ul>
+<section class="total-price">Podsumowanie: {{totalSum}} zł</section>
+
+<br />
+<input type="text" placeholder="Kod Rabatowy" [formControl]="kodRabatowy"  />
+<span *ngIf="kodRabatowyAktywny">Kod rabatowy aktywny</span>
+<span *ngIf="!kodRabatowyAktywny" style="color:red">Kod rabatowy nieaktywny</span>
+
+
