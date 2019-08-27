@@ -47,10 +47,10 @@ export class CartService {
         }
         
         
-        this.saveItem(this.helpFunc.parseToString(products));
-        this.messageSource.next({ products : products, totalSum : this.countTotalSum() , kodAktywny : this.kodAktywny   });
+        this.saveItem(this.helpFunc.parseToString(products));//zapisanie produktow do cookie
+        this.messageSource.next({ products : products, totalSum : this.countTotalSum() , kodAktywny : this.kodAktywny   });//aktualizacja listy produktow w widoku
         
-    }
+    }//dodanie elementu do koszyka
     
     countTotalSum(){
         const items = this.getItems();
@@ -70,7 +70,7 @@ export class CartService {
         }
         
         return totalSum;
-    }
+    }//zliczenie sumy dla produktów w koszyku uwzdlędniające rabat ( jeżeli został wprowadzony )
     
     findIndex(prod){
         
@@ -84,7 +84,7 @@ export class CartService {
         
         return element;
         
-    }
+    }//znalezienie indexu produktu
     
     removeAll(id){
         let items = this.getItems();
@@ -92,7 +92,7 @@ export class CartService {
         
         this.saveItem(this.helpFunc.parseToString(items));
         this.messageSource.next({ products : items , totalSum : this.countTotalSum() , kodAktywny : this.kodAktywny  });
-    }
+    }//usunięcie wszystkich produktów z koszyka i cookie
     
     removeItem(id){
         let items = this.getItems();
@@ -108,18 +108,18 @@ export class CartService {
         
         this.saveItem(this.helpFunc.parseToString(items));
         this.messageSource.next({ products : items , totalSum : this.countTotalSum() , kodAktywny : this.kodAktywny });
-    }
+    }//usunięcie produktu z koszyka i z cookie
     
     saveItem(products){
         Cookies.set(this.cookie_name, products, {expires : 2});   
-    }
+    }//zapisanie produktu z koszyka do cookie
     
     getItems(){
         if(Cookies.get(this.cookie_name) !== undefined){
             return this.helpFunc.parseToObject(Cookies.get(this.cookie_name));
         }
         return false;
-    }
+    }//pobranie listy produktów z cookie, API było wywoływane tylko raz w celu zapisania produktów do ciasteczka
     
     
     
@@ -131,6 +131,6 @@ export class CartService {
         
         this.messageSource.next({ products : this.getItems() , totalSum : this.countTotalSum() , kodAktywny : this.kodAktywny });
         
-    }
+    }//
     
-}
+}// serwis koszyka
