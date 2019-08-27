@@ -15,7 +15,7 @@ import {
 })
 export class ProductsService {
     
-    private url = "http://private-1c19e-reactlesson.apiary-mock.com/products";
+    private url = "http://private-1c19e-reactlesson.apiary-mock.com/products";//url do bazy produktów
     
     constructor(private http: HttpClient) { }
   
@@ -38,7 +38,7 @@ export class ProductsService {
             )
         );
     
-    }
+    }//pobranie listy produktow z API
   
 }
 
@@ -54,4 +54,4 @@ export class Product {
         
     ){}
     
-}
+}//tworzenie produktu z API na bazie klasy
